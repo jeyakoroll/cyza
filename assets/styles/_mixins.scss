@@ -1,0 +1,83 @@
+/* --------- mixins --------- */
+@mixin sans($style : jenya) {
+	@if $style == jenya {
+		font-family: 'OpenSansRegular';
+	}
+	@if $style == semi {
+		font-family: 'OpenSansSemibold';
+	}
+}
+
+@mixin display($flex) {
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: $flex;
+}
+
+@mixin flex-direction($var) {
+	-webkit-flex-direction: $var;
+	-ms-flex-direction: $var;
+    flex-direction: $var;
+}
+
+@mixin justify-content($var) {
+	-webkit-justify-content: $var;
+	-ms-justify-content: $var;
+	    justify-content: $var;
+}
+
+@mixin align-items($var){
+	-webkit-align-items: $var;
+	-ms-align-items: $var;
+	align-items: $var;
+}
+@mixin flex-wrap($var){
+	-webkit-flex-wrap: $var;
+	-ms-flex-wrap: $var;
+	flex-wrap: $var;
+}
+
+/* --------- responsive mixins --------- */
+@mixin phones {
+	@media (min-width: 320px) and (max-width: 480px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: 480px) and (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (min-width: 768px) and (max-width: 992px) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: 992px) and (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin huge {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin main($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin main-down($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

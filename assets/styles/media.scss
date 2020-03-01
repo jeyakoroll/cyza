@@ -211,6 +211,7 @@ html, body {
 }
 .profile_upload {
   display: none;
+  position: relative;
   border-radius: 3px;
   border: 1px solid #d0dce7;
   justify-content: space-between;
@@ -227,6 +228,15 @@ html, body {
     height: 45px;
     margin-top: 0px;
   }
+}
+.profile_upload-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
 .profile_upload-img {
   width: 28px;
@@ -590,6 +600,7 @@ html, body {
   width: 30px;
   height: 25px;
   background-color: #ecf1f5;
+  cursor: pointer;
   @include main(768px) {
     width: 43px;
     height: 37px;
@@ -659,6 +670,7 @@ html, body {
   }
 }
 .saved_name {
+  position: relative;
   display: flex;
   @include sans(semi);
   @include phones {
@@ -688,14 +700,13 @@ html, body {
     width: fit-content;
   }
 }
-.name-first {
-
-}
-.name-last {
-
+.text-phone, .text-address, .text-website {
+  color: #3f454a;
+  text-decoration: none;
 }
 .saved_text {
   display: flex;
+  position: relative;
   align-items: center;
   @include phones {
     color: #3f454a;
@@ -759,6 +770,7 @@ html, body {
 .name_label {
   color: #a6b0b7;
   text-transform: uppercase;
+  font-size: 12px;
   @include phones {
     font-size: 12px;
   }
@@ -773,7 +785,7 @@ html, body {
   font-size: 16px;
   color: #3f454a;
   @include main(768px) {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
   }
 }
 
@@ -781,6 +793,9 @@ html, body {
 // TOOLTIP
 .con-tooltip {
   transition: all 0.3s ease-in-out;
+}
+.tooltip-hide {
+  display: none;
 }
 /* tooltip  after*/
 .tooltip::after {
@@ -794,28 +809,28 @@ html, body {
   left: 40%;
 }
 .tooltip {
-  display: none;
+  display: flex;
   flex-direction: column;
-  visibility: visible;
-  z-index: 2;
-  transform: translateY(-10px);
+  align-items: flex-start;
+  z-index: 10;
+  transform: translate(6px, -10px);
+  transition: .3s linear;
   width: 298px;
   position: absolute;
+  top: 6%; left: 80%;
   height: 142px;
   padding: 0px 20px;
   box-shadow: 0 0 25px #bdc4c9;
   background: #fff;
   opacity: 1;
-  transition: .3s linear;
   padding-top: 20px;
-  align-items: flex-start;
   cursor: default;
 }
 /*hover ToolTip*/
-.right { transform: translateX(6px); }
+// .right { transform: translateX(6px); }
 /*right*/
-.right .tooltip { top: 5%; left:-10%; }
-.right .tooltip::after{
+// .right .tooltip { top: 5%; right:-10%; }
+.tooltip::after{
   top: 15%;
   left: -6%;
   transform: rotate(90deg);
